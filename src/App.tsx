@@ -10,6 +10,7 @@ import Teams from "./pages/Teams";
 import Admin from "./pages/Admin";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import Assistant from "./components/Assistant";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Assistant />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

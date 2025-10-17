@@ -27,9 +27,8 @@ export const Navigation = () => {
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
-              className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center"
             >
-              <Home className="w-5 h-5 text-white" />
+              <img src="/logo.png" alt="Kalaveeryam" className="w-10 h-10 no-pointer-events" />
             </motion.div>
             <span className="font-bold text-xl watercolor-text hidden md:block">
               Kalaveeryam
