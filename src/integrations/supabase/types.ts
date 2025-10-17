@@ -14,7 +14,137 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      candidates: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          id: string
+          name: string
+          photo_url: string | null
+          team_id: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          name: string
+          photo_url?: string | null
+          team_id: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          name?: string
+          photo_url?: string | null
+          team_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "candidates_team_id_fkey"
+            columns: ["team_id"]
+            isOneToOne: false
+            referencedRelation: "teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      events: {
+        Row: {
+          category: string
+          created_at: string | null
+          id: string
+          max_points: number
+          name: string
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          id?: string
+          max_points?: number
+          name: string
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          id?: string
+          max_points?: number
+          name?: string
+        }
+        Relationships: []
+      }
+      results: {
+        Row: {
+          candidate_id: string
+          created_at: string | null
+          event_id: string
+          id: string
+          points: number
+          position: number
+        }
+        Insert: {
+          candidate_id: string
+          created_at?: string | null
+          event_id: string
+          id?: string
+          points: number
+          position: number
+        }
+        Update: {
+          candidate_id?: string
+          created_at?: string | null
+          event_id?: string
+          id?: string
+          points?: number
+          position?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "results_candidate_id_fkey"
+            columns: ["candidate_id"]
+            isOneToOne: false
+            referencedRelation: "candidates"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "results_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      teams: {
+        Row: {
+          created_at: string | null
+          id: string
+          is_default: boolean | null
+          leader_1: string
+          leader_2: string
+          logo_url: string | null
+          name: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          is_default?: boolean | null
+          leader_1: string
+          leader_2: string
+          logo_url?: string | null
+          name: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          is_default?: boolean | null
+          leader_1?: string
+          leader_2?: string
+          logo_url?: string | null
+          name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
